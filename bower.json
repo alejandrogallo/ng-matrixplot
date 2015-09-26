@@ -1,0 +1,29 @@
+{
+  "name": "ng-matrixplot",
+  "version": "0.0.1",
+  "authors": [
+    "alejandro gallo <alejandroamsg@hotmail.com>"
+  ],
+  "description": "An angular directive for 2D matrix plots",
+  "keywords": [
+    "matrix",
+    "plot",
+    "angular",
+    "graph",
+    "2D",
+    "ODMR"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/alejandrogallo/ng-matrixplot",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d3": "~3.5.6",
+    "angular": "~1.4.6"
+  }
+}
