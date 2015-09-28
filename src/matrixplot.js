@@ -1,12 +1,10 @@
-var matrixplot = function (canvas, settings) {
- var instance = new MatrixPlotClass(canvas, settings);
- return instance;
-}
+
 
 
 
 function MatrixPlotClass(canvas, settings) {
  // Class definition
+ // Settings must be a json object {"data":[[0-100]], "options":{"width":- , "height": - , color:0..360}}
  var self = this;
  self.initParameters = function(){
   self.settings = settings;
@@ -25,9 +23,7 @@ function MatrixPlotClass(canvas, settings) {
   self.pixelHeight = self.settings.options.height/rows;
   // check if it works in all browsers
   self.context = canvas.getContext("2d");
-  console.log("before", self.context);
-  // self.context.clearRect(0, 0, self.settings.options.width, self.settings.options.height);
-  console.log("after", self.context);
+  self.context.clearRect(0, 0, self.settings.options.width, self.settings.options.height);
  }
  // draw function
  self.draw = function() {
@@ -46,4 +42,11 @@ function MatrixPlotClass(canvas, settings) {
   self.initParameters();
   self.draw();
  }
+}
+
+
+// wrapper
+var matrixplot = function (canvas, settings) {
+ var instance = new MatrixPlotClass(canvas, settings);
+ return instance;
 }

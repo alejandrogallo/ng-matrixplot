@@ -4,6 +4,7 @@ module.exports = function (grunt) {
     pkg: grunt.file.readJSON('bower.json'),
     concat: {
       options: {
+        banner: '/*! <%= pkg.name %> \n <%= pkg.license %> <%= grunt.template.today("dd-mm-yyyy") %> <%= pkg.author %> */\n',
         separator: ';'
       },
       dist: {
@@ -13,7 +14,7 @@ module.exports = function (grunt) {
     },
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+        banner: '/*! <%= pkg.name %> \n <%= pkg.license %> <%= grunt.template.today("dd-mm-yyyy") %> <%= pkg.author %> */\n'
       },
       dist: {
         files: {

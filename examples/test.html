@@ -3,7 +3,7 @@
 	<meta charset="utf-8">
 	<title></title>
 </head>
-<body ng-app="ng-matrixplot" ng-controller="MainController">
+<body ng-app="test" ng-controller="TestController">
 
 
 
@@ -42,19 +42,36 @@
 
 
 <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
-<!-- <script type="text/javascript" src="../bower_components/d3/d3.js"></script> -->
 
 
 <script type="text/javascript" src="../src/matrixplot.js"></script>
 
-<script type="text/javascript" src="../src/ng-matrixplot.js"></script>
+<script type="text/javascript" src="../src/ng-matrixplot-directive.js"></script>
 
 
 
 
 
 
-
+<script type="text/javascript">
+angular.module("test",["ng-matrixplot"])
+.controller("TestController", ["$scope", function ($scope) {
+ 	$scope.prepareData = function () { 
+	  var data = []; 
+  		$scope.rows=100; 
+  		$scope.cols=100 ;
+  		var seed= Math.random()*10000;
+  		for (var i = 0; i < $scope.rows; i++) {
+   			data.push([]);
+   			for (var j = 0; j < $scope.cols; j++) {
+    		data[i].push(Math.floor(Math.sin(2*3.14*seed*i*j/($scope.rows*$scope.cols*100))*Math.cos(i/seed)*100));
+  			 };
+  		};
+		return data;
+	};
+	$scope.settings={"data":$scope.prepareData(), "options":{"width": 600 ,"height": 600 ,"color": 240}};
+}]);
+</script>
 
 
 
