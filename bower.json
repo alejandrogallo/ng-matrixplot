@@ -1,0 +1,24 @@
+{
+  "name": "gh-pages",
+  "version": "0.0.1",
+  "authors": [
+    "alejandro gallo <alejandroamsg@hotmail.com>"
+  ],
+  "description": "Documentation for ng-matrixplot",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "matrix",
+    "plot",
+    "angularjs"
+  ],
+  "license": "MIT",
+  "homepage": "http://alejandrogallo.github.io/ng-matrixplot/",
+  "dependencies": {
+    "angular": "~1.4.6",
+    "font-awesome": "~4.4.0",
+    "angular-bootstrap": "~0.13.4",
+    "bootstrap": "~3.3.5",
+    "ng-matrixplot": "~0.0.1"
+  }
+}

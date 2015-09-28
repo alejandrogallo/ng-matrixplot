@@ -1,1 +1,96 @@
-Hello World
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta description="A javascript and AngularJs plugin for simple rendering of 2D matrix plots">
+	<meta author="Alejandro Gallo">
+	<meta language="en">
+	<meta keywords="javascript, angularjs, matrix, plot, graph, matplotlib, math, library, directive">
+	<title>ng-matrix plot: A javascript and AngularJs plugin for simple rendering of 2D matrix plots</title>
+	<link rel="stylesheet" href="bower_components/angular-ui/build/angular-ui.min.css">
+	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+</head>
+<body ng-app="test" ng-controller="TestController">
+
+
+
+
+
+<matrix-plot settings="settings">
+
+</matrix-plot>
+
+
+<div class="form-group">
+	<label>Color</label>
+	<input class="form-control" type="range" max="360" min="0" ng-model="settings.options.color"> <br>
+
+	<label for="">Width - <input class="form-control" type="text"  ng-value="settings.options.width" ng-model="settings.options.width"></label> <br>
+	<input class="form-control" type="range" max="10000" min="0" ng-model="settings.options.width"> <br>
+	<label for="">Height - <input class="form-control" type="text"  ng-value="settings.options.height" ng-model="settings.options.height"></label><br>
+	<input class="form-control" type="range" max="10000" min="0" ng-model="settings.options.height"> <br>
+	<button ng-click="settings.data = prepareData()">Renew</button> <br>
+</div>
+
+
+
+
+
+
+
+
+<style type="text/css">
+	body{
+		margin: 0;
+		padding:0;
+	}
+	svg , canvas{
+		margin: 0;
+		padding: 0;
+		border-style: solid;
+		border-width: 1px;
+
+	}
+</style>
+
+
+
+<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="dist/ng-matrixplot.min.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+angular.module("test", ["ng-matrixplot", "angular-ui"])
+.controller("TestController", ["$scope", function ($scope) {
+ 	$scope.prepareData = function () { 
+	  var data = []; 
+  		$scope.rows=100; 
+  		$scope.cols=100 ;
+  		var seed= Math.random()*10000;
+  		for (var i = 0; i < $scope.rows; i++) {
+   			data.push([]);
+   			for (var j = 0; j < $scope.cols; j++) {
+    		data[i].push(Math.floor(Math.sin(2*3.14*seed*i*j/($scope.rows*$scope.cols*100))*Math.cos(i/seed)*100));
+  			 };
+  		};
+		return data;
+	};
+	$scope.settings={"data":$scope.prepareData(), "options":{"width": 600 ,"height": 600 ,"color": 240}};
+}]);
+</script>
+
+
+
+
+
+</body>
+</html>
+
+

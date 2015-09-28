@@ -1,0 +1,30 @@
+{
+  "name": "ng-matrixplot",
+  "version": "0.0.1",
+  "authors": [
+    "alejandro gallo <alejandroamsg@hotmail.com>"
+  ],
+  "description": "A javascript and AngularJs plugin for simple rendering of 2D matrix plots",
+  "keywords": [
+    "matrix",
+    "plot",
+    "angularjs",
+    "graph",
+    "2D",
+    "javascript",
+    "matplotlib",
+    "ODMR"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/alejandrogallo/ng-matrixplot",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.6"
+  }
+}
