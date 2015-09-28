@@ -18,4 +18,4 @@ plot.initParameters();
 plot.draw();
 ```
 
-where color ranges from 0 to 360 through the `color wheel`.
+where `color` ranges from 0 to 360 through the [color wheel](https://en.wikipedia.org/wiki/HSL_and_HSV).
