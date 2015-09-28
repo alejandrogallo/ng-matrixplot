@@ -6,8 +6,8 @@ app.controller("MainController", ["$scope", function ($scope) {
  $scope.prepareData = function () { 
   // $scope.data=[[0]];
   var data = []; 
-  $scope.rows=80; 
-  $scope.cols=80 ;
+  $scope.rows=100; 
+  $scope.cols=100 ;
   var seed= Math.random()*10000;
   for (var i = 0; i < $scope.rows; i++) {
    data.push([]);
