@@ -11,6 +11,11 @@ The API is very simple:
 
 Select a "canvas" element and 
 
-'''js
+```javascript
+var settings = {data: [[0,1],[100,0]], options: [width: 500, height: 500, color: 120]};
+var plot = matrixplot(canvas, settings);
+plot.initParameters();
+plot.draw();
+```
 
-'''
+where color ranges from 0 to 360 through the `color wheel`.
