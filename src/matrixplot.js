@@ -44,7 +44,6 @@ function MatrixPlotClass(canvas, settings) {
  };
 }
 
-
 // wrapper
 var matrixplot = function (canvas, settings) {
  var instance = new MatrixPlotClass(canvas, settings);

@@ -1,6 +1,10 @@
 {
   "name": "ng-matrixplot",
   "version": "0.0.1",
+  "main": [
+    "./dist/matrixplot.min.js",
+    "./dist/ng-matrixplot.min.js",
+  ],
   "authors": [
     "alejandro gallo <alejandroamsg@hotmail.com>"
   ],
