@@ -42,3 +42,5 @@ and use the `matrixPlot` directive like so
 
 and *voilà*. Of course in this way you can change the settings parameters or the data and the plot will change 
 automatically. 
+
+#### Checkout a live [demo](http://alejandrogallo.github.io/ng-matrixplot) at the gh-pages of the project.
