@@ -9,6 +9,12 @@ The API is very simple:
 	
 ### Pure Javascript
 
+Include the script into you html file:
+
+```html
+<script type="text/javascript" src="ng-matrixplot/dist/matrixplot.min.js"></script>
+```
+
 Select a "canvas" element and 
 
 ```javascript
@@ -26,6 +32,12 @@ myPlot.refresh(myNewSettings);
 ```
 
 ### AngularJs
+
+Include the script into you html file:
+
+```html
+<script type="text/javascript" src="ng-matrixplot/dist/ng-matrixplot.min.js"></script>
+```
 
 Inject `ng-matrixplot` into your module: 
 
