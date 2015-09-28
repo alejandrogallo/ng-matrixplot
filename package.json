@@ -4,7 +4,7 @@
   "authors": [
     "alejandro gallo <alejandroamsg@hotmail.com>"
   ],
-  "description": "An angular directive for 2D matrix plots",
+  "description": "A javascript and AngularJs plugin for simple rendering of 2D matrix plots",
   "keywords": [
     "matrix",
     "plot",
