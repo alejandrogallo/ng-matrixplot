@@ -40,5 +40,5 @@ and use the `matrixPlot` directive like so
 <matrix-plot settings="mySettings"> </matrix-plot>
 ```
 
-and *voilà*. Of course in that way you can change the settings parameters or the data and the plot will change 
+and *voilà*. Of course in this way you can change the settings parameters or the data and the plot will change 
 automatically. 
