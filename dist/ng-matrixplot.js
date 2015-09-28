@@ -1,3 +1,5 @@
+/*! ng-matrixplot 
+ MIT 29-09-2015 alejandro gallo <alejandroamsg@hotmail.com> */
 
 
 
@@ -50,3 +52,25 @@ var matrixplot = function (canvas, settings) {
  var instance = new MatrixPlotClass(canvas, settings);
  return instance;
 };
+;angular.module("ng-matrixplot", []).directive("matrixPlot", 
+  ["$parse", function ($parse) {
+ return {
+  restrict: "EA",
+  template: "<canvas> </canvas>",
+  link: function(scope, elem, attrs){
+   var canvas = elem.find("canvas")[0];
+   var settings = $parse(attrs.settings)(scope);
+   var plot = matrixplot(canvas, settings);
+   scope.$watch(attrs.settings, 
+    function(newv, oldv) {
+      if (newv) {
+       plot.refresh(newv); 
+      }
+     },true);
+    }
+   }; 
+  }]);
+
+
+
+

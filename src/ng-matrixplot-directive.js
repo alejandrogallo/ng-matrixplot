@@ -11,7 +11,7 @@ angular.module("ng-matrixplot", []).directive("matrixPlot",
     function(newv, oldv) {
       if (newv) {
        plot.refresh(newv); 
-      };
+      }
      },true);
     }
    }; 

@@ -1,10 +1,10 @@
 module.exports = function (grunt) {
 
   grunt.initConfig({
-    pkg: grunt.file.readJSON('bower.json'),
+    pkg: grunt.file.readJSON('package.json'),
     concat: {
       options: {
-        banner: '/*! <%= pkg.name %> \n <%= pkg.license %> <%= grunt.template.today("dd-mm-yyyy") %> <%= pkg.author %> */\n',
+        banner: '/*! <%= pkg.name %> \n <%= pkg.license %> <%= grunt.template.today("dd-mm-yyyy") %> <%= pkg.authors %> */\n',
         separator: ';'
       },
       dist: {
@@ -14,11 +14,12 @@ module.exports = function (grunt) {
     },
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %> \n <%= pkg.license %> <%= grunt.template.today("dd-mm-yyyy") %> <%= pkg.author %> */\n'
+        banner: '/*! <%= pkg.name %> \n <%= pkg.license %> <%= grunt.template.today("dd-mm-yyyy") %> <%= pkg.authors %> */\n'
       },
       dist: {
         files: {
-          'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+          'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>'],
+          'dist/matrixplot.min.js': 'src/matrixplot.js'
         }
       }
     },
@@ -51,6 +52,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', ['jshint', 'qunit']);
 
-  grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
 
 };
