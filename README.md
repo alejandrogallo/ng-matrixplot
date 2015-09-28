@@ -53,6 +53,16 @@ and use the `matrixPlot` directive like so
 ```
 
 and *voilà*. Of course in this way you can change the settings parameters or the data and the plot will change 
-automatically. 
+automatically.
+
+
+### Install with bower
+
+This package has been registered with [Bower](http://bower.io), to install it using bower just type 
+```shell
+bower install --save ng-matrixplot
+```
+and include the files at the directory ``` ./bower_components/dist ```
+
 
 #### Checkout a live [demo](http://alejandrogallo.github.io/ng-matrixplot) at the gh-pages of the project.
