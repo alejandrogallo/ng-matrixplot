@@ -3,19 +3,20 @@
 	<meta charset="utf-8">
 	<title></title>
 </head>
-<body ng-app="angular-matrixplot" ng-controller="MainController">
+<body ng-app="ng-matrixplot" ng-controller="MainController">
 
 
 
 <label>Color</label>
-<input type="range" max="360" min="0" ng-model="color"> <br>
+<input type="range" max="360" min="0" ng-model="settings.options.color"> <br>
 
-<label for="">Width</label>
-<input type="range" max="1000" min="0" ng-model="width"> <br>
-<label for="">Height</label>
-<input type="range" max="1000" min="0" ng-model="height"> <br>
+<label for="">Width - <input type="text"  ng-value="settings.options.width" ng-model="settings.options.width"></label> <br>
+<input type="range" max="10000" min="0" ng-model="settings.options.width"> <br>
+<label for="">Height - <input type="text"  ng-value="settings.options.height" ng-model="settings.options.height"></label><br>
+<input type="range" max="10000" min="0" ng-model="settings.options.height"> <br>
+<button ng-click="settings.data = prepareData()">Renew</button> <br>
 
-<matrix-plot data="data" color="color" width="{{width}}" height="{{height}}">
+<matrix-plot settings="settings">
 
 </matrix-plot>
 
@@ -41,8 +42,10 @@
 
 
 <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
-<script type="text/javascript" src="../bower_components/d3/d3.js"></script>
+<!-- <script type="text/javascript" src="../bower_components/d3/d3.js"></script> -->
 
+
+<script type="text/javascript" src="../src/matrixplot.js"></script>
 
 <script type="text/javascript" src="../src/ng-matrixplot.js"></script>
 
@@ -61,90 +64,3 @@
 </html>
 
 
-
-
-<script type="text/javascript">
-	// CANVAS
-// var data = [], rows=80, cols=80;
-// var seed= Math.random()*10000;
-// for (var i = 0; i < rows; i++) {
-// 	data.push([]);
-// 	for (var j = 0; j < cols; j++) {
-// 		data[i].push(Math.floor(Math.sin(2*3.14*seed*i*j/(rows*cols*100))*Math.cos(i/seed)*100));
-// 	};
-// };
-
-
-
-	
-
-// var width=window.innerHeight, height=window.innerHeight;
-
-// var pixelWidth = width/cols; 
-// var pixelHeight = height/rows; 
-	
-// var chart = d3.select("#chart-canvas").append("canvas").attr("width",width).attr("height",height);
-
-// var context = chart.node().getContext("2d");
-
-
-// data.forEach(function(d,i) {
-// 	// console.log(d,i);
-// 	// context.beginPath();
-// 	d.forEach(function(q,l) {
-// 		context.beginPath();
-// 		context.rect(l*pixelWidth, i*pixelHeight, pixelWidth, pixelHeight);
-// 		context.lineWidth="-1";
-// 		context.fillStyle="hsl(120, 100%,"+q+"%)";
-// 		context.fill();
-// 		// context.stroke();
-// 	});
-// 	// context.closePath();
-// });
-
-
-
-
-</script>
-
-
-<script type="text/javascript">
-// SVG
-// var data = [], rows=100, cols=100;
-// var seed= Math.random()*2;
-// for (var i = 0; i < rows; i++) {
-// 	data.push([]);
-// 	for (var j = 0; j < cols; j++) {
-// 		data[i].push(Math.floor(Math.sin(2*3.14*i*j*seed/rows)*100));
-// 	};
-// };
-
-
-// var chart = d3.select("#chart-svg");
-
-// var pixelWidth = parseInt(chart.style("width"))/cols; 
-// var pixelHeight = parseInt(chart.style("height"))/rows; 
-
-
-// chart.selectAll("g")
-//     .data(data)
-//  	.enter()
-//     .append("g")
-//     .attr("class","row")
-//   	.attr("transform",function(d,i){ return "translate(0,"+i*pixelHeight+")";})
-//   .selectAll("rect")
-//   	.data(function(d,i){return d;})
-//   	.enter()
-//   	.append("rect")
-//   	.attr("class","col")
-//   	.attr("x",function(d,i){ return i*pixelWidth;})
-//   	.attr("y","0")
-//   	// .attr("width",function(){return parseInt(chart.style("width"))/cols;})
-//   	// .attr("height",function(){return parseInt(chart.style("height"))/rows;})
-//   	.attr("width",function(){ return pixelWidth})
-//   	.attr("height",function(){ return pixelHeight})
-//   	.style("fill", function(d){return "hsl(0, 100%,"+d+"%)";})
-//     .text(function(d,i) { return d.toString()+" - "+i.toString(); })
-
-
-</script>
