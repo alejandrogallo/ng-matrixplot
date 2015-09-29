@@ -6,34 +6,104 @@
 	<meta language="en">
 	<meta keywords="javascript, angularjs, matrix, plot, graph, matplotlib, math, library, directive">
 	<title>ng-matrix plot: A javascript and AngularJs plugin for simple rendering of 2D matrix plots</title>
-	<link rel="stylesheet" href="bower_components/angular-ui/build/angular-ui.min.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
 </head>
+
+
+
+
+
+
+
 <body ng-app="test" ng-controller="TestController">
 
 
+<matrix-plot settings="getBackground()" style="z-index: -10; "></matrix-plot>
 
 
 
-<matrix-plot settings="settings">
-
-</matrix-plot>
 
 
-<div class="form-group">
-	<label>Color</label>
-	<input class="form-control" type="range" max="360" min="0" ng-model="settings.options.color"> <br>
 
-	<label for="">Width - <input class="form-control" type="text"  ng-value="settings.options.width" ng-model="settings.options.width"></label> <br>
-	<input class="form-control" type="range" max="10000" min="0" ng-model="settings.options.width"> <br>
-	<label for="">Height - <input class="form-control" type="text"  ng-value="settings.options.height" ng-model="settings.options.height"></label><br>
-	<input class="form-control" type="range" max="10000" min="0" ng-model="settings.options.height"> <br>
-	<button ng-click="settings.data = prepareData()">Renew</button> <br>
+
+
+
+
+
+
+
+<h1 class= "text-center " style="position: absolute; z-index: 2; top: 0; left: 0; right: 0;">
+		<matrix-plot settings="letter('n')"></matrix-plot>
+		<matrix-plot settings="letter('g')"></matrix-plot>
+		<matrix-plot settings="letter('-')"></matrix-plot>
+		<matrix-plot settings="letter('m')"></matrix-plot>
+		<matrix-plot settings="letter('a')"></matrix-plot>
+		<matrix-plot settings="letter('t')"></matrix-plot>
+		<matrix-plot settings="letter('r')"></matrix-plot>
+		<matrix-plot settings="letter('t')"></matrix-plot>
+		<matrix-plot settings="letter('x')"></matrix-plot>
+		<matrix-plot settings="letter('p')"></matrix-plot>
+		<matrix-plot settings="letter('l')"></matrix-plot>
+		<matrix-plot settings="letter('o')"></matrix-plot>
+		<matrix-plot settings="letter('t')"></matrix-plot>
+</h1>
+<div class="text-center" style="position:absolute; left:0; right:0;" ng-style="{'top':(innerHeight/2-50)+'px'}" >
+	<matrix-plot settings="letter('f')"></matrix-plot>
+	<matrix-plot settings="letter('o')"></matrix-plot>
+	<matrix-plot settings="letter('r')"></matrix-plot>
+	<matrix-plot settings="letter('k')"></matrix-plot>
+	<matrix-plot settings="letter(' ')"></matrix-plot>
+	<matrix-plot settings="letter('m')"></matrix-plot>
+	<matrix-plot settings="letter('e')"></matrix-plot>
+	<matrix-plot settings="letter(' ')"></matrix-plot>
+	<matrix-plot settings="letter('o')"></matrix-plot>
+	<matrix-plot settings="letter('n')"></matrix-plot>
+	<matrix-plot settings="letter(' ')"></matrix-plot>
+	<matrix-plot settings="letter('g')"></matrix-plot>
+	<matrix-plot settings="letter('i')"></matrix-plot>
+	<matrix-plot settings="letter('t')"></matrix-plot>
+	<matrix-plot settings="letter('h')"></matrix-plot>
+	<matrix-plot settings="letter('u')"></matrix-plot>
+	<matrix-plot settings="letter('b')"></matrix-plot>
+	<br>
+	<a href="https://github.com/alejandrogallo/ng-matrixplot" class="fa fa-github" style="font-size: 100px; margin-top: 1em;"></a>
 </div>
 
 
 
+<div class="container text-center "  >
+	
+	<h2>Example</h2>
+	
 
+	<matrix-plot settings="settings" >
+
+	</matrix-plot>
+
+
+<div class="form-group row center-block" ng-style="{'background-color':'hsla('+settings.options.color+',100%,50%, .5)'}" style="width:50%; padding:2em;">
+	<div class="col-xs-6">
+		<label>Color <code>{{settings.options.color |number:0}}</code></label>
+		<input class="form-control" type="range" max="360" min="0" ng-model="settings.options.color"> 
+	</div>
+	<div class="col-xs-6">
+		<label>Width <code>{{settings.options.width |number:0}}</code></label>
+		<input class="form-control" type="range" max="1000" min="0" ng-model="settings.options.width"> 
+	</div>
+	<div class="col-xs-6">
+		<label>Height <code>{{settings.options.height |number:0}}</code></label>
+		<input class="form-control" type="range" max="1000" min="0" ng-model="settings.options.height"> 
+	</div>
+	<div class="col-xs-6">
+		<label for="pixels">Pixels <code>{{pixels}}</code></label>
+		<input class="form-control" type="range" max="500" min="0" ng-model="pixels">
+	</div>
+	<button class="btn btn-danger" ng-click="settings.data = prepareData()">Refresh data</button> <br>
+</div>
+
+
+</div>
 
 
 
@@ -43,23 +113,25 @@
 		margin: 0;
 		padding:0;
 	}
-	svg , canvas{
+	/*svg , canvas{
 		margin: 0;
 		padding: 0;
 		border-style: solid;
 		border-width: 1px;
 
-	}
+	}*/
 </style>
 
 
+<script type="text/javascript" src="abc.js"></script>
 
 <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 
 
+<script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.min.js
+"></script>
 
-
-<script type="text/javascript" src="dist/ng-matrixplot.min.js"></script>
+<script type="text/javascript" src="bower_components/ng-matrixplot/dist/ng-matrixplot.min.js"></script>
 
 
 
@@ -67,22 +139,63 @@
 
 
 <script type="text/javascript">
-angular.module("test", ["ng-matrixplot", "angular-ui"])
+angular.module("test", ["ng-matrixplot"])
 .controller("TestController", ["$scope", function ($scope) {
+
+	$scope.innerHeight = window.innerHeight;
+	$scope.pixels = 30;
  	$scope.prepareData = function () { 
-	  var data = []; 
-  		$scope.rows=100; 
-  		$scope.cols=100 ;
+		var data = []; 
+  		rows=$scope.pixels; 
+  		cols=$scope.pixels ;
   		var seed= Math.random()*10000;
-  		for (var i = 0; i < $scope.rows; i++) {
+  		for (var i = 0; i < rows; i++) {
    			data.push([]);
-   			for (var j = 0; j < $scope.cols; j++) {
-    		data[i].push(Math.floor(Math.sin(2*3.14*seed*i*j/($scope.rows*$scope.cols*100))*Math.cos(i/seed)*100));
+   			for (var j = 0; j < cols; j++) {
+    		data[i].push(Math.floor(Math.sin(2*3.14*seed*i*j/(rows*cols*100))*Math.cos(i/seed)*100));
   			 };
   		};
 		return data;
 	};
-	$scope.settings={"data":$scope.prepareData(), "options":{"width": 600 ,"height": 600 ,"color": 240}};
+	$scope.settings={"data":$scope.prepareData(), "options":{"width": innerHeight/1.5 ,"height": innerHeight/1.5 ,"color": Math.random()*360}};
+	$scope.letter = function (letter, dim, color){
+		var data = ABC[letter];
+		var dim = dim || "50";
+		var color = color || Math.random()*360;
+		var array = [];
+		// console.log(data);
+		for (var i = 0; i < data.length; i++) {
+			array.push([]);
+			for (var j = 0; j < data[i].length; j++) {
+				if (data[i][j] == "0"){
+					var rand = Math.random();
+					array[i].push(rand*50+(1-rand)*90);
+				}
+				else{
+					array[i].push(Math.random()*20);
+				}
+			};
+		};
+		return {"data": array, "options":{"width": dim, "height": dim, "color": color}};
+		// console.log(array);
+	};
+
+
+	$scope.getBackground = function(){
+		var array = []; 
+  		rows=10; 
+  		cols=10 ;
+  		for (var i = 0; i < rows; i++) {
+   			array.push([]);
+   			for (var j = 0; j < cols; j++) {
+   				var rand = Math.random();
+    			array[i].push(rand*10);
+  			 };
+  		};
+		return {"data":array, "options":{"width": window.innerWidth , "height": window.innerHeight, "color": Math.random()*360}};
+	};
+
+
 }]);
 </script>
 
