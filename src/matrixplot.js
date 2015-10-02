@@ -42,6 +42,17 @@ function MatrixPlotClass(canvas, settings) {
   self.initParameters();
   self.draw();
  };
+ self.font = function(text){
+  // matrixplot font writer
+  // returns a span with canvas elements inside
+  var spanContainer = document.createElement("span");
+  var canvas;
+  for (var i = 0; i < text.length; i++) {
+    var canvas = document.createElement("canvas");
+    // create a new canvas for each letter
+    text[i]
+  }
+ };
 }
 
 // wrapper
