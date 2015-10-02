@@ -24,14 +24,14 @@ myPlot.initParameters();
 myPlot.draw();
 ```
 
-where `color` ranges from 0 to 360 through the [color wheel](https://en.wikipedia.org/wiki/HSL_and_HSV). The entrances of the matrix are the lightness of the *hsl* color. This feature is open to be generalised to other color spaces. The parameters `width` and `height` are the dimensions of the canvas HTMLElement. 
+where `color` ranges from 0 to 360 through the [color wheel](https://en.wikipedia.org/wiki/HSL_and_HSV). The entries of the matrix are the lightness of the *hsl* color. This feature is open to be generalised to other color spaces. The parameters `width` and `height` are the dimensions of the canvas HTMLElement. 
 If you need to redraw the plot, just call the `refresh` method with new settings like this
 ```javascript
 var myNewSettings = {data: [[23,1],[100,51],[2,3]], options: [width: 500, height: 500, color: 120]};
 myPlot.refresh(myNewSettings);
 ```
 
-### AngularJs
+### [AngularJs](https://www.angularjs.org)
 
 Include the script into you html file:
 
