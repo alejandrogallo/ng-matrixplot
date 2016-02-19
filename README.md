@@ -1,4 +1,4 @@
-# ng-matrixplot v.0.0.1
+# ng-matrixplot
 
 ##A javascript and AngularJs plugin for simple rendering of 2D matrix plots
 
